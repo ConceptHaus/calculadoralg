@@ -57,7 +57,7 @@ include("php/app_consultas.php");
 						<div class="swiper-wrapper border-danger my-5 my-md-5">
 							
 							
-							<?php echo @muestra_producto(@$_SESSION['seleccion']); ?>
+							<?php echo muestra_producto($_SESSION['seleccion']); ?>
 							
 							
 							<div class="swiper-slide my-auto ">
