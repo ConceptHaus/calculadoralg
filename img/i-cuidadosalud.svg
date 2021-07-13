@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41">
+  <g id="Group_697" data-name="Group 697" transform="translate(-1505.5 -363.153)">
+    <g id="Group_507" data-name="Group 507" transform="translate(1038.891 120.081)">
+      <rect id="Rectangle_29" data-name="Rectangle 29" width="41" height="41" rx="10" transform="translate(466.61 243.072)" fill="#44c1c1"/>
+    </g>
+    <g id="signo-de-hospital" transform="translate(1510.229 367.882)">
+      <g id="Group_679" data-name="Group 679" transform="translate(7.578 5.113)">
+        <g id="Group_678" data-name="Group 678">
+          <path id="Path_2186" data-name="Path 2186" d="M123.616,83a.616.616,0,1,0,.616.616A.616.616,0,0,0,123.616,83Z" transform="translate(-123 -83)" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_681" data-name="Group 681">
+        <g id="Group_680" data-name="Group 680">
+          <path id="Path_2187" data-name="Path 2187" d="M15.771,0A16.039,16.039,0,0,0,0,15.771,16.038,16.038,0,0,0,15.771,31.543,16.039,16.039,0,0,0,31.543,15.771,16.038,16.038,0,0,0,15.771,0Zm0,30.311A14.734,14.734,0,0,1,1.232,15.771,14.734,14.734,0,0,1,15.771,1.232,14.734,14.734,0,0,1,30.311,15.771,14.734,14.734,0,0,1,15.771,30.311Z" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_683" data-name="Group 683" transform="translate(2.649 2.649)">
+        <g id="Group_682" data-name="Group 682">
+          <path id="Path_2188" data-name="Path 2188" d="M56.122,43a13.784,13.784,0,0,0-5.733,1.251.616.616,0,0,0,.53,1.112,12.51,12.51,0,0,1,5.2-1.131A11.722,11.722,0,1,1,47.2,48.161a.616.616,0,1,0-.92-.819A13.188,13.188,0,1,0,56.122,43Z" transform="translate(-43 -43)" fill="#fff"/>
+        </g>
+      </g>
+      <g id="Group_685" data-name="Group 685" transform="translate(7.763 7.763)">
+        <g id="Group_684" data-name="Group 684">
+          <path id="Path_2189" data-name="Path 2189" d="M141.4,130.929h-4.313v-4.312a.616.616,0,0,0-.616-.616h-4.929a.616.616,0,0,0-.616.616v4.313h-4.312a.616.616,0,0,0-.616.616v4.929a.616.616,0,0,0,.616.616h4.313V141.4a.616.616,0,0,0,.616.616h4.929a.616.616,0,0,0,.616-.616v-4.313H141.4a.616.616,0,0,0,.616-.616v-4.929A.616.616,0,0,0,141.4,130.929Zm-.616,4.929h-4.313a.616.616,0,0,0-.616.616v4.313h-3.7v-4.313a.616.616,0,0,0-.616-.616h-4.313v-3.7h4.313a.616.616,0,0,0,.616-.616v-4.313h3.7v4.313a.616.616,0,0,0,.616.616h4.313Z" transform="translate(-126 -126)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
