@@ -108,7 +108,7 @@
 		$conexion = conectarse();
 		$opciones='';
 
-		$sqlX="SELECT p.id_prod, p.id_tipo, modelo, imagen, ANY_VALUE(c.id_rad), ANY_VALUE(video), x, y, tx, ty, xm, ym, txm, tym, caracteristica, texto, link, ANY_VALUE(ventana), url, descr FROM productos p, cat_tipos_radiografia c, cat_radiografia r, cat_tipos t where p.id_tipo=c.id_tipo and p.id_prod='".$id_prod."' and c.id_rad=r.id_rad  and p.id_tipo=t.id_tipo group by ventana;";
+		$sqlX="SELECT p.id_prod, p.id_tipo, modelo, imagen, ANY_VALUE(c.id_rad), ANY_VALUE(video), ANY_VALUE(x), ANY_VALUE(y), ANY_VALUE(tx), ANY_VALUE(ty), ANY_VALUE(xm), ANY_VALUE(ym), ANY_VALUE(txm), ANY_VALUE(tym), caracteristica, texto, link, ANY_VALUE(ventana), url, descr FROM productos p, cat_tipos_radiografia c, cat_radiografia r, cat_tipos t where p.id_tipo=c.id_tipo and p.id_prod='".$id_prod."' and c.id_rad=r.id_rad  and p.id_tipo=t.id_tipo group by ventana;";
 		$resultX = mysqli_query($conexion,$sqlX);
 		$opciones.=$sqlX;  
 		while ($rowX = mysqli_fetch_assoc($resultX)) {
