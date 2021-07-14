@@ -58,13 +58,13 @@
 		$sqlX="SELECT p.id_prod, modelo, voltaje, imagen_desc, titulo,imagen,thinq, dualinverter, tuv, plasmaster, g10, g5 
 		FROM productos p, productos_tipo_aire pt
 		WHERE pt.id_prod=p.id_prod and id_zona='".$id_zona."' and id_aire='".$id_aire."' and id_hab='".$id_hab."' 
-		order by modelo desc;";
+		order by RAND();";
 		$resultX = mysqli_query($conexion,$sqlX);
 		while ($rowX = mysqli_fetch_assoc($resultX)) {
 			$opciones.='<div class="col-md-6 center opciones pb-5 px-lg-6 ">';
 					if ($rowX['imagen_desc']!='')
 						$opciones.='<div><img src="img/'.$rowX['imagen_desc'].'" class="img-fluid px-lg-6 px-4" alt="'.$rowX['titulo'].'"></div>';
-					$opciones.='<div><img src="img/aire/'.$rowX['imagen'].'.jpg" alt="'.$rowX['modelo'].'" class="img-fluid px-lg-5 px-4"></div>
+					$opciones.='<div><img src="img/aire/'.$rowX['imagen'].'.png" alt="'.$rowX['modelo'].'" class="img-fluid px-lg-5 px-4"></div>
 					<div>';
 					
 					if ($rowX['thinq']=='Si')
@@ -112,6 +112,7 @@
 				where p.id_tipo=c.id_tipo and p.id_prod='".$id_prod."' and c.id_rad=r.id_rad  and p.id_tipo=t.id_tipo
 				group by ventana;";
 		$resultX = mysqli_query($conexion,$sqlX);
+		$opciones.=$sqlX;
 		while ($rowX = mysqli_fetch_assoc($resultX)) {
 			if($rowX['ventana']==1) $vidcar='el video'; else $vidcar='la característica';
 			$opciones.='<div class="swiper-slide ">
@@ -133,7 +134,7 @@
 												</div>
 											</div>
 										</p>
-										<div class="botonad pb-3"><button class="boton btn-block adquierelo" data-adq="'.$rowX['url'].'">¡ADQUIÉRELO AQUÍ!</button></div>
+										<div class="botonad pb-3"><button id="ad-'.$rowX['ventana'].'" class="boton btn-block adquierelo" data-adq="'.$rowX['url'].'">¡ADQUIÉRELO AQUÍ!</button></div>
 									</div>
 								</div>
 							</div>';
