@@ -137,7 +137,7 @@
 								</div>
 							</div>';
 		}
-		echo mysqli_errno($conexion) . ": " . mysqli_error($conexion) . "\n";
+		#echo mysqli_errno($conexion) . ": " . mysqli_error($conexion) . "\n";
 		return $opciones;
 		mysqli_close($conexion);
 	}
