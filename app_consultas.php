@@ -107,7 +107,7 @@
 		$conexion = conectarse();
 		$opciones='';
 
-		$sqlX="SELECT p.id_prod, p.id_tipo, modelo, imagen, c.id_rad, video, x, y, tx, ty, xm, ym, txm, tym, caracteristica, texto, link, ventana, url, descr
+		echo $sqlX="SELECT p.id_prod, p.id_tipo, modelo, imagen, c.id_rad, video, x, y, tx, ty, xm, ym, txm, tym, caracteristica, texto, link, ventana, url, descr
 				FROM productos p, cat_tipos_radiografia c, cat_radiografia r, cat_tipos t
 				where p.id_tipo=c.id_tipo and p.id_prod='".$id_prod."' and c.id_rad=r.id_rad  and p.id_tipo=t.id_tipo
 				group by ventana;";
