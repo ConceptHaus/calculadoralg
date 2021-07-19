@@ -112,7 +112,7 @@
 				where p.id_tipo=c.id_tipo and p.id_prod='".$id_prod."' and c.id_rad=r.id_rad  and p.id_tipo=t.id_tipo
 				group by ventana;";
 		$resultX = mysqli_query($conexion,$sqlX);
-		$opciones.=$sqlX;
+		
 		while ($rowX = mysqli_fetch_assoc($resultX)) {
 			if($rowX['ventana']==1) $vidcar='el video'; else $vidcar='la característica';
 			$opciones.='<div class="swiper-slide ">
