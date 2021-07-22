@@ -1800,6 +1800,10 @@ var SEMICOLON = SEMICOLON || {};
 																																																			$('.openBtnEs').on('click',function(){ 
 																																																				$("#loadmodal").append('<div class="modal fade " id="aviso" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"><div class="modal-dialog modal-xl "><div class="modal-body"><div class="modal-content"><div class="modal-header text-center"><span data-dismiss="modal" aria-hidden="true"><i class="icon-times-circle1"></i> CERRAR</span></div><div class="modal-body modal-cuerpo" id="ventana-contenido"></div></div></div></div></div>');
 																																																				$('.modal-cuerpo').load('aviso-privacidad.html',function(){
+																																																					var ua = window.navigator.userAgent;
+																																																					var isIE = /MSIE|Trident/.test(ua);
+																																																					if ( isIE ) {$('#aviso').removeClass("fade");}
+																																																					
 																																																					$('#aviso').modal({show:true});
 																																																				});
 																																																			});

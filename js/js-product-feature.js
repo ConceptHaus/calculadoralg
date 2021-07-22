@@ -28,6 +28,9 @@ $.fn.jsProductFeature = function (i) {
 				$("#titulov").append(titulo);
 				$('#videolg').attr('src',video);
 				$('#videolgmd').attr('src',video);
+				var ua = window.navigator.userAgent;
+				var isIE = /MSIE|Trident/.test(ua);
+				if ( isIE ) {$('#ventana').removeClass("fade");}
 				$('#ventana').modal({show:true});
 			});
 		}

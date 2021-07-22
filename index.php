@@ -14,7 +14,7 @@
 
 	<title>Aire Acondicionado: Encuentra tu equipo ideal | LG México </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 
 <body class="stretched">
@@ -68,13 +68,39 @@
 	</div>
 	
 	<div id="gotoTop" class="icon-angle-up"></div>
-	
+	<div id="loadsafari"></div>
 	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<script src="js/plugins.min.js"></script>
 	<script src="js/functions.js"></script>
 	
 	<script>
-		
+	var isIE = false;
+var ua = window.navigator.userAgent; 
+var old_ie = ua.indexOf('MSIE ');
+var new_ie = ua.indexOf('Trident/');
+var new_ed = ua.indexOf('Edg/');
+
+if ((old_ie > -1) || (new_ie > -1) || (new_ed > -1)) {
+    isIE = true;
+}
+	
+	if ( isIE ) {
+		$("#loadsafari").append('<div class="modal  fade" id="safari" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"><div class="modal-dialog modal-xl "><div class="modal-body"><div class="modal-content"><div class="modal-header text-center"></div><div class="modal-body modal-cuerpo" id="ventana-contenido"></div></div></div></div></div>');
+				$('.modal-cuerpo').load('aviso.html',function(){
+					
+
+				
+				  $('#safari').removeClass("fade");
+				
+				
+				$('#safari').modal({show:true});
+				
+				
+				
+				 
+			});
+		}		
 		$("#empezar").click(function() {
 			
 			$.post("php/app_sesiones.php",{name:'lg', valor: '1', iniciar:'1'},function(data) {
@@ -84,6 +110,8 @@
 		});
 
 	</script>
+	
+	
 
 </body>
 

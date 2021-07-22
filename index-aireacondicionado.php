@@ -21,7 +21,8 @@ include("php/app_consultas.php");
 
 		<title>Aire Acondicionado: Encuentra tu equipo ideal | LG México </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=9">
 	</head>
 
 	<body class="stretched" style="background-color: #f4f5f5">
@@ -128,6 +129,8 @@ include("php/app_consultas.php");
 		<div id="loadmodal"></div>
 		
 		<script src="js/jquery.js"> </script>
+		<script src="js/bootstrap.min.js"></script>
+		
 		<script src="js/plugins.min.js"> </script>
 		<script src="js/functions.js"> </script>
 		<script src="js/js-product-feature.js"> </script>

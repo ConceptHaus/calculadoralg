@@ -6000,7 +6000,7 @@ a.close.disabled {
 	outline: 0;
 }
 
-.modal-dialog {
+.modal-dialog { 
 	position: relative;
 	width: auto;
 	margin: 0.5rem;
@@ -6106,7 +6106,7 @@ a.close.disabled {
 	z-index: 1040;
 	width: 100vw;
 	height: 100vh;
-	background-color: #000;
+	background-color: rgba(0,0,0,.8) !important;
 }
 
 .modal-backdrop.fade {
@@ -6137,7 +6137,7 @@ a.close.disabled {
 	font-size: 26px;  
 	cursor: pointer;
 	line-height: 1.25;
-  letter-spacing: 1.44px;
+    letter-spacing: 1.44px;
 	
 }
 

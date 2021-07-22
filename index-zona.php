@@ -13,7 +13,8 @@
 
 		<title>Aire Acondicionado: Encuentra tu equipo ideal | LG México </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="X-UA-Compatible" content="IE=9">
 	</head>
 
 	<body class="stretched">
@@ -147,6 +148,7 @@
 		<div id="gotoTop" class="icon-angle-up"></div>
 
 		<script src="js/jquery.js"> </script>
+		<script src="js/bootstrap.min.js"></script>
 		<script src="js/plugins.min.js"> </script>
 		<script src="js/functions.js"> </script>
 		
