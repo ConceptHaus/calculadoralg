@@ -59,7 +59,7 @@ include("php/app_consultas.php");
 							
 							<?php  echo  muestra_producto($_SESSION['seleccion']); ?>
 							
-							
+							<!--
 							<div class="swiper-slide my-auto ">
 								<div class="container ">
 									<div class="slider-caption slider-caption-center " >
@@ -75,7 +75,7 @@ include("php/app_consultas.php");
 										</div>
 									</div>
 								</div>
-							</div>
+							</div>-->
 							
 						</div>
 						

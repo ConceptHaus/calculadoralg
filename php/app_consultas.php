@@ -61,27 +61,46 @@
 		order by RAND();";
 		$resultX = mysqli_query($conexion,$sqlX);
 		while ($rowX = mysqli_fetch_assoc($resultX)) {
-			$opciones.='<div class="col-md-6 center opciones pb-5 px-lg-6 ">';
-					if ($rowX['imagen_desc']!='')
-						$opciones.='<div><img src="img/'.$rowX['imagen_desc'].'" class="img-fluid px-lg-6 px-4" alt="'.$rowX['titulo'].'"></div>';
-					$opciones.='<div><img src="img/aire/'.$rowX['imagen'].'.png" alt="'.$rowX['modelo'].'" class="img-fluid px-lg-5 px-4"></div>
-					<div>';
+			$sql = "SELECT id_prod,id_sears FROM productos_sears WHERE id_prod='".$rowX['id_prod']."';";
+			$result = mysqli_query($conexion,$sql);
+			$idSears = $result->fetch_assoc();	
+			if (isset($idSears['id_sears'])) { 
+				
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_URL, "https://seapi-beta.dev.sears.com.mx/app/v1/product/".$idSears['id_sears'].""); 
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+				curl_setopt($ch, CURLOPT_HEADER, 0); 
+				$data = curl_exec($ch); 
+				curl_close($ch);
+				$respuesta =json_decode($data);
+				
+				if ($idSears['id_sears'] != 0) {
 					
-					if ($rowX['thinq']=='Si')
-						$opciones.='<img src="img/LG ThinQ.svg" alt="LG ThinQ" height="25" class="px-2">';
-					if ($rowX['dualinverter']=='Si')
-						$opciones.='<img src="img/dualinv.svg" alt="Dual Inverter" height="25" class="px-2">';
-					if ($rowX['tuv']=='Si')
-						$opciones.='<img src="img/tuv.svg" alt="TUV Rheinland" height="25" class="px-2">';
-					if ($rowX['g10']=='Si')
-						$opciones.='<img src="img/10year.svg" alt="10 años de garantía" height="25" class="px-2">';
-					if ($rowX['g5']=='Si')
-						$opciones.='<img src="img/5years.svg" alt="5 años de garantía" height="25" class="px-2">';
-					
-					$opciones.='</div><div class="texto-rojo mt-3 mb-0 p-0 ">'.$rowX['modelo'].'</div>
-								<div class=" pt-0 mt-0">Con un voltaje '.$rowX['voltaje'].'</div>
-								<div><button id="p-'.(int)$rowX['id_prod'].'" data-id="'.(int)$rowX['id_prod'].'" data-href="aire-acondicionado" data-model="'.$rowX['modelo'].'" class="boton px-lg-5 px-3" >MÁS INFORMACIÓN</button></div>
-						</div>';
+					if($respuesta->data->stock>0){	
+						$opciones.='<div class="col-md-6 center opciones pb-5 px-lg-6 ">';
+							if ($rowX['imagen_desc']!='')
+								$opciones.='<div><img src="img/'.$rowX['imagen_desc'].'" class="img-fluid px-lg-6 px-4" alt="'.$rowX['titulo'].'"></div>';
+							$opciones.='<div><img src="img/aire/'.$rowX['imagen'].'.png" alt="'.$rowX['modelo'].'" class="img-fluid px-lg-5 px-4"></div>
+							<div>';
+							
+							if ($rowX['thinq']=='Si')
+								$opciones.='<img src="img/LG ThinQ.svg" alt="LG ThinQ" height="25" class="px-2">';
+							if ($rowX['dualinverter']=='Si')
+								$opciones.='<img src="img/dualinv.svg" alt="Dual Inverter" height="25" class="px-2">';
+							if ($rowX['tuv']=='Si')
+								$opciones.='<img src="img/tuv.svg" alt="TUV Rheinland" height="25" class="px-2">';
+							if ($rowX['g10']=='Si')
+								$opciones.='<img src="img/10year.svg" alt="10 años de garantía" height="25" class="px-2">';
+							if ($rowX['g5']=='Si')
+								$opciones.='<img src="img/5years.svg" alt="5 años de garantía" height="25" class="px-2">';
+							
+							$opciones.='</div><div class="texto-rojo mt-3 mb-0 p-0 ">'.$rowX['modelo'].'</div>
+										<div class=" pt-0 mt-0">Con un voltaje '.$rowX['voltaje'].'</div>
+										<div><button id="p-'.(int)$rowX['id_prod'].'" data-id="'.(int)$rowX['id_prod'].'" data-href="aire-acondicionado" data-model="'.$rowX['modelo'].'" class="boton px-lg-5 px-3" >MÁS INFORMACIÓN</button></div>
+								</div>';
+					}
+				}
+			}
 		}
 		return $opciones;
 		mysqli_close($conexion);
@@ -92,7 +111,6 @@
 	{
 		$conexion = conectarse();
 		$historia='';
-
 		$sqlX="SELECT ".$valor." as valor FROM productos c where baja='0' and id_prod='".$id_prod."';";
 		$resultX = mysqli_query($conexion,$sqlX);
 		while ($rowX = mysqli_fetch_assoc($resultX)) {
