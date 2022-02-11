@@ -67,7 +67,7 @@
 			if (isset($idSears['id_sears'])) { 
 				
 				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_URL, "https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears'].""); 
+				curl_setopt($ch, CURLOPT_URL, "https://seapi-beta.dev.sears.com.mx/app/v1/product/".$idSears['id_sears'].""); 
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 				curl_setopt($ch, CURLOPT_HEADER, 0); 
 				$data = curl_exec($ch); 
