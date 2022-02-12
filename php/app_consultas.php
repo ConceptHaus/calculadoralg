@@ -77,7 +77,7 @@
 			    $curl = curl_init();
 
 				curl_setopt_array($curl, [
-				  CURLOPT_URL => "https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears']."",
+				  CURLOPT_URL => "https://seapi-beta.dev.sears.com.mx/app/v1/product/".$idSears['id_sears']."",
 				  CURLOPT_RETURNTRANSFER => true,
 				  CURLOPT_ENCODING => "",
 				  CURLOPT_MAXREDIRS => 10,
