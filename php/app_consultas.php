@@ -64,14 +64,43 @@
 			$result = mysqli_query($conexion,$sql);
 			$idSears = $result->fetch_assoc();	
 			if (isset($idSears['id_sears'])) { 
-				$ch = curl_init();
+				/*$ch = curl_init();
 				curl_setopt($ch, CURLOPT_URL, "https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears'].""); 
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 				curl_setopt($ch, CURLOPT_HEADER, 0); 
 				$data = curl_exec($ch); 
 				if (curl_errno($ch)) {
 			        echo 'Error:' . curl_error($ch);
-			    }
+			    }*/
+
+
+			    $curl = curl_init();
+
+				curl_setopt_array($curl, [
+				  CURLOPT_URL => "https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears']."",
+				  CURLOPT_RETURNTRANSFER => true,
+				  CURLOPT_ENCODING => "",
+				  CURLOPT_MAXREDIRS => 10,
+				  CURLOPT_TIMEOUT => 30,
+				  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				  CURLOPT_CUSTOMREQUEST => "GET",
+				  CURLOPT_POSTFIELDS => "",
+				  CURLOPT_COOKIE => "_abck=E110844D3DB4ECB2452D2E7770A27BF3~-1~YAAQtAB8aJTCVrh%2BAQAAP75z6wclpHK2H3bhGIfzfQ%2FhtFwohOqUNU5YRxqTXF6GOXoJ6EE9PR3y1Djktsyne9udHZAXVm2%2Frh9Pqb5zNgUqUK9u%2B5s51fedN%2FZrAxBpEGAS5xBBht4cG8b3vEaRPGf746Iv3cJIzSsa3EReFTmoTiejVIDOBYhTOuWECCNLrHvJ8LtPv9CoVcxFEvzu2ysjKg8RcyL4CKfHU%2Burp%2FW4XK9aDSlfMTkYMJF%2BHISFaZoe3EkNsxN9MtdLJTo%2BDdpe5eUIXx2z0hambT%2FyaI47DzIjfMtrS9DsRDlo9TF7HMnYzdfktI5q8ND4o55XRo5A7NddAtNKLIotmL1U9bbbY5DJsvuk9SbJEg%3D%3D~-1~-1~-1; ak_bmsc=AE8C2AAC3E5E9D0A97872B53000944B1~000000000000000000000000000000~YAAQtAB8aJXCVrh%2BAQAAP75z6w7acfgQ0%2BaTCHWYvbFhRZnSVfJOe7Dx9LGw9megp9ediTo%2FASTEaCEwqseCBXlWHJ4ifniD6MmUWKX6qu3ZUxCiWIrrYJ3ZO41KyJS2Ug%2FlAghQ5oOsWyVbubDdg%2FvqWqiAK3cubUXxTZn1%2FbBp5A%2Fa85CEpqw7OkqlVUiS0tinTiQbh9k9st7dVb%2Fk4KtgHdKVBoAfplFyE80%2FzdOoyY9r%2FtEW8iRQ6Wb3sweDx3vy7PMsF%2FyQjmQ%2F43gpbazyx5LYpvXpinQw947DR94A%2B83o8JaPvyPniscRdtKkwwWcGW66qUFMC1kp1M08%2F1hmCZWmMfajJMTK6FW1wgiv2tfdI4XDw8ELU6K0pRh18%2FWQuKuVqpgBIpVI9A%3D%3D; bm_sz=6CD1284FCDE784C6E2C19D1227F7F7C5~YAAQtAB8aJbCVrh%2BAQAAP75z6w4E2ueFZSuKfbABWta8nkKE7kxMGaS4pFFZqfsIa51ctLzJa8kEsJusufUt9DwYhFlOI3m4gh8gdp79ALPP1RbhnO0UxKwinnfbx5mN2uFNbI1lzS9bmoEnOn7eg0iNh2hkfinQTOoRFwG7IDQxUcpKDvGZIkcr%2BmiT1KLBTuytpommR77Px1lzzq4Unu8ESKMkUEns1jSBDYXN9VGbaWLJq5ahhPIroHqbpfRPtH4Adl05xQJJrBmtHLrua3l6sZd1pPJA90svnVxSfeUxTJi5jA%3D%3D~3354676~3228226",
+				]);
+
+				$response = curl_exec($curl);
+				$err = curl_error($curl);
+
+				curl_close($curl);
+
+				if ($err) {
+				  echo "cURL Error #:" . $err;
+				} else {
+				  echo $response;
+				}
+
+
+
 				$respuesta =json_decode($data);
 				
 				if ($idSears['id_sears'] != 0) {
