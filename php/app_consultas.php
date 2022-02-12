@@ -69,6 +69,9 @@
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 				curl_setopt($ch, CURLOPT_HEADER, 0); 
 				$data = curl_exec($ch); 
+				if (curl_errno($ch)) {
+			        echo 'Error:' . curl_error($ch);
+			    }
 				$respuesta =json_decode($data);
 				
 				if ($idSears['id_sears'] != 0) {
