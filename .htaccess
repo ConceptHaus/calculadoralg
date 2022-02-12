@@ -41,5 +41,32 @@ RewriteRule ^aire-acondicionado$ index-aireacondicionado.php
   
 </IfModule>
 
+server {
+   
+    location ~ \.php$ {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        fastcgi_index index.php;
+        include fastcgi_params;
+    }
+    
+     location /elige {
+      rewrite ^/elige-zona$ /index-zona.php;
+      rewrite ^/elige-aire$ /index-aire.php;
+      rewrite ^/elige-habitacion$ /index-habitacion.php;
+      rewrite ^/elige-opciones$ /index-opciones.php;
+    }
+    
+    location /aire {
+      rewrite ^/aire-acondicionado$ /index-aireacondicionado.php;
+    }
+
+    location ~ /\.(?!well-known).* {
+        deny all;
+    }
+    
+
+}
+
 
 
