@@ -68,7 +68,7 @@
 				$ch = curl_init();
 				print_r("https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears']."");
 				echo("https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears'].""); 
-				curl_setopt($ch, CURLOPT_URL, "https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears'].""); 
+				curl_setopt($ch, CURLOPT_URL, "https://seapi-beta.dev.sears.com.mx/app/v1/product/".$idSears['id_sears'].""); 
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 				curl_setopt($ch, CURLOPT_HEADER, 0); 
 				$data = curl_exec($ch); 
