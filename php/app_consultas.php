@@ -101,7 +101,7 @@
 
 
 
-				$respuesta =json_decode($data);
+				$respuesta =json_decode($response);
 				
 				if ($idSears['id_sears'] != 0) {
 					
@@ -129,7 +129,7 @@
 								</div>';
 					}
 				}
-				curl_close($ch);
+				
 			}
 		}
 		return $opciones;
