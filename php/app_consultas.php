@@ -54,7 +54,7 @@
 	{
 		$conexion = conectarse();
 		$opciones='';
-        print_r("configapi");
+        print_r("https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears']."");
 		$sqlX="SELECT p.id_prod, modelo, voltaje, imagen_desc, titulo,imagen,thinq, dualinverter, tuv, plasmaster, g10, g5 
 		FROM productos p, productos_tipo_aire pt
 		WHERE pt.id_prod=p.id_prod and id_zona='".$id_zona."' and id_aire='".$id_aire."' and id_hab='".$id_hab."' 
@@ -68,7 +68,7 @@
 				$ch = curl_init();
 				print_r("https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears']."");
 				echo("https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears'].""); 
-				curl_setopt($ch, CURLOPT_URL, "https://seapi-beta.dev.sears.com.mx/app/v1/product/".$idSears['id_sears'].""); 
+				curl_setopt($ch, CURLOPT_URL, "https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears'].""); 
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 				curl_setopt($ch, CURLOPT_HEADER, 0); 
 				$data = curl_exec($ch); 
