@@ -61,11 +61,42 @@
 		order by RAND();";
 		$resultX = mysqli_query($conexion,$sqlX);
 		while ($rowX = mysqli_fetch_assoc($resultX)) {
-			$opciones.='<div class="col-md-6 center opciones pb-5 px-lg-6 ">';
-					if ($rowX['imagen_desc']!='')
-						$opciones.='<div><img src="img/'.$rowX['imagen_desc'].'" class="img-fluid px-lg-6 px-4" alt="'.$rowX['titulo'].'"></div>';
-					$opciones.='<div><img src="img/aire/'.$rowX['imagen'].'.png" alt="'.$rowX['modelo'].'" class="img-fluid px-lg-5 px-4"></div>
-					<div>';
+			$sql = "SELECT id_prod,id_sears FROM productos_sears WHERE id_prod='".$rowX['id_prod']."';";
+			$result = mysqli_query($conexion,$sql);
+			$idSears = $result->fetch_assoc();	
+			if (isset($idSears['id_sears'])) { 
+				/*$ch = curl_init();
+				curl_setopt($ch, CURLOPT_URL, "https://seapi.sears.com.mx/app/v1/product/".$idSears['id_sears'].""); 
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
+				curl_setopt($ch, CURLOPT_HEADER, 0); 
+				$data = curl_exec($ch); 
+				if (curl_errno($ch)) {
+			        echo 'Error:' . curl_error($ch);
+			    }*/
+
+
+			
+
+				$curl = curl_init();
+				$agent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)";
+
+				curl_setopt_array($curl, array(
+				  CURLOPT_URL => "https://seapi.release.sears.com.mx/products/v1/products/".$idSears['id_sears']."",
+				  CURLOPT_RETURNTRANSFER => true,
+				  CURLOPT_ENCODING => '',
+				  CURLOPT_MAXREDIRS => 10,
+				  CURLOPT_TIMEOUT => 0,
+				  CURLOPT_FOLLOWLOCATION => true,
+				  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				  CURLOPT_CUSTOMREQUEST => 'GET',
+				 CURLOPT_USERAGENT => $agent
+				  
+				));
+				$response = curl_exec($curl);
+				curl_close($curl);
+				
+				$respuesta =json_decode($response);
+				if ($idSears['id_sears'] != 0) {
 					
 					if ($rowX['thinq']=='Si')
 						$opciones.='<img src="img/LG ThinQ.svg" alt="LG ThinQ" height="25" class="px-2">';
@@ -82,6 +113,8 @@
 								<div class=" pt-0 mt-0">Con un voltaje '.$rowX['voltaje'].'</div>
 								<div><button id="p-'.(int)$rowX['id_prod'].'" data-id="'.(int)$rowX['id_prod'].'" data-href="aire-acondicionado" data-model="'.$rowX['modelo'].'" class="boton px-lg-5 px-3" >MÁS INFORMACIÓN</button></div>
 						</div>';
+				}
+			}
 		}
 		return $opciones;
 		mysqli_close($conexion);
