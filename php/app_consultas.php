@@ -78,7 +78,7 @@
 			
 
 				$curl = curl_init();
-				$agent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)";
+				$agent = $_SERVER['HTTP_USER_AGENT'];
 
 				curl_setopt_array($curl, array(
 				  CURLOPT_URL => "https://seapi.release.sears.com.mx/products/v1/products/".$idSears['id_sears']."",
