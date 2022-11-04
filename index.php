@@ -15,6 +15,14 @@
 	<title>Aire Acondicionado: Encuentra tu equipo ideal | LG México </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-69014947-31"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-69014947-31');
+		</script>
 </head>
 
 <body class="stretched">
