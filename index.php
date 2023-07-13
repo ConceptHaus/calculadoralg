@@ -16,13 +16,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-69014947-31"></script>
+	<!--	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-69014947-31"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
 			gtag('config', 'UA-69014947-31');
-		</script>
+		</script>-->
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-85R1XWVE95"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-85R1XWVE95');
+</script>
 </head>
 
 <body class="stretched">
@@ -62,7 +71,7 @@
 								</div>
 								
 							</div>
-							<div class="swiper-pagination"></div>
+							<div class="swiper-pagination"> </div>
 						</div>
 
 					</div>
